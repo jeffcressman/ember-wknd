@@ -8,6 +8,18 @@ Work in progress.
 * add options for deploying to a variety of environments
 * add code climate and similar badges
 * add testing
+* move all fixture data into a single `fixture.js` file
+* check out <http://indexiatech.github.io/ember-forms/#/getstarted> for Embered Bootstrap styled forms
+* use Bootstrap for Ember components where possible instead of raw Bootstrap CSS and javascript
+* Embered modals (modals have a route so that state is fully expressed by URL)
+* Create workshops when creating speakers
+
+## IMPROVE 
+
+* Make Speakers and Workshops pages show clicked item on same page via outlet
+* For the main page we could simply have the IndexView render the speaker and workshop templates
+into named outlets, which would load their respective controllers and thus models, instead of having the IndexRoute load two models into a 'multi-model'
+* DRY up the templates as some are nearly identical
 
 ## Background
 
@@ -31,45 +43,39 @@ Before coding an application I want to know that I have and end-to-end solution 
 * Authentication
   * `ember-simple-auth`
   * Devise
-* Embered modals
 
 ## The App
 
 Ficticious Ember weekend conference with Guests, Speakers, Workshops, and Hosts.
 
 The default application view is a public list of Speakers and Workshops.
+<emberwknd.com/>
 
-Guests can register and sign up for Workshops.
+Guests can register and login
+`/login`
+`/guests/new`
 Guests have a name, email, password, and list of workshops they are attending.
+`/guest/:id`
+Guests can sign up for Workshops via register button
+`/workshops/:id/`
 
-Speakers have a name and list of workshops they are presenting.
+The Guest 'page' demonstrates nested routes and views, displaying the workshop details when clicking a workshop.
+`/guest/:id/workshops/:id`
+`/guest/:id/workshops/:id/speaker/:id`
+
+Speakers have a name, bio, and list of workshops they are presenting.
+`/speakers`
+`/speaker/:id`
 
 A Workshop has a name, description, and id of the Speaker giving it.
+`/workshop/:id`
 
 Hosts can edit Workshops and Speakers.
+`/hosts`
+`/workshop/:id/edit`
+`/speaker/:id/edit`
 
-The Speakers 'page' demonstrates nested routes and views, displaying a Speakers details when clicking their name in the Speakers list.
-
-The Guests 'page' demonstrates replacing one view with another.
-
-The login button demonstrates using modals and named outlets.
-
-The URLs will be
-
-```
-emberwknd.com/
-emberwknd.com/guests/new
-emberwknd.com/guests/:id
-emberwknd.com/guests/:id/workshops
-emberwknd.com/speakers/
-emberwknd.com/speakers/:id
-emberwknd.com/speakers/:id/workshops
-emberwknd.com/guests/workshops/:id
-emberwknd.com/guests/workshops/:id/speaker/:id
-emberwknd.com/hosts/:id
-emberwknd.com/hosts/:id/speaker/:id/edit
-emberwknd.com/hosts/:id/workshop/:id/edit
-```
+todo: The login button demonstrates using modals and named outlets.
 
 ## Prerequisites
 
@@ -123,10 +129,18 @@ ember new ember-wknd
 cd ember-wknd
 npm install --save-dev ember-cli-bootstrap
 ```
+Get rid of the # in URLs
+
+```javascript
+Router.reopen({
+    location: 'auto',
+    rootURL: '/'
+});
+```
 
 ## Notes
 
-Initially I installed Bootstrap via Bower but then changed my mind and decided to use ember-cli addons when available. The first time I installed ember-cli-bootstrap I got some warnings about unment version dependencies. I used npm to update `quick-temp` and `chalk` but then ember-cli started throwing `Path or pattern "vendor/loader/loader.js" did not match any files` so I recreated my app from scratch and this time no errors.
+Initially I installed Bootstrap via Bower but then changed my mind and decided to use ember-cli addons when available. The first time I installed ember-cli-bootstrap I got some warnings about unment version dependencies. I used npm to update `quick-temp` and `chalk` but then ember-cli started throwing `Path or pattern "vendor/loader/loader.js" did not match any files` so I recreated my app from scratch and this time no errors. Oh, the problem was that I deleted the 'bower_components' directorty, which contains ember, amongst other things, because I thought only the version of Bootstrap that I installed would be in there.
 
 ## Further Reading / Useful Links
 

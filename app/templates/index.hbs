@@ -1,0 +1,21 @@
+<div class="row">
+	<!-- Workshops -->
+	<div class="col-md-6">
+		<h4>Workshops</h4>
+		<ul class="list-group">
+			{{#each workshop in workshops}}
+			  <li class="list-group-item">{{#link-to 'workshops.workshop' workshop}}{{workshop.name}}{{/link-to}}</li>
+			{{/each}}
+		</ul>	
+	</div>
+	
+	<!-- Speakers -->
+	<div class="col-md-6">
+		<h4>Speakers</h4>
+		<ul class="list-group">
+			{{#each speaker in speakers}}
+			  <li class="list-group-item">{{#link-to 'speakers.speaker' speaker}}{{speaker.name}}{{/link-to}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>

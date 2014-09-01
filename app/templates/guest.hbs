@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>{{model.name}}</h2>
+		<h4>{{model.email}}</h3>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		{{#bs-panel heading="Workshop Schedule" type="info"}}
+			<ul class="list-group">
+				{{#each workshop in model.workshops}}
+				  <li class="list-group-item">{{#link-to 'guest.workshops.workshop' model workshop}}{{workshop.name}}{{/link-to}}</li>
+				{{/each}}
+			</ul>
+		{{/bs-panel}}
+	</div>
+	<div class="col-md-8">
+		{{outlet}}
+	</div>
+</div>

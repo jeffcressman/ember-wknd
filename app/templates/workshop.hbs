@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>{{model.name}}</h2>
+		<p>{{model.description}}</p>
+		{{#link-to 'model.workshops.speaker' model.speaker}}{{model.speaker.name}}{{/link-to}}
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<ul class="list-group">
+				{{#each workshop in model.workshops}}
+				  <li class="list-group-item">{{#link-to 'workshop' workshop}}{{workshop.name}}{{/link-to}}</li>
+				{{/each}}
+			</ul>
+		</div>
+		<div class="col-md-8">
+			{{outlet}}
+	</div>
+</div>

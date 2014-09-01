@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-md-12">
+		{{#bs-panel heading="Speaker" type="info"}}
+			<p><b>Name:</b> {{name}}</p>
+			<p><b>Bio:</b> {{bio}}</p>
+			<p><b>Speaker for:</b></p>
+			<ul class="list-group">
+				{{#each workshop in workshops}}
+				  <li class="list-group-item">{{#link-to 'workshops.workshop' workshop}}{{workshop.name}}{{/link-to}}</li>
+				{{/each}}
+			</ul>
+		{{/bs-panel}}
+	</div>
+	<div class="col-md-6">
+		{{outlet}}
+	</div>
+</div>
+
