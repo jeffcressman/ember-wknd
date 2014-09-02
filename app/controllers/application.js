@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+// Ok, so JSHint complains that
+// controllers/application.js: line 35, col 20, 'Bootstrap' is not defined.
+// BUT we CAN call Bootstrap methods so its a misleading error.
+// I still don't have the javascript working that would
 export default Ember.Controller.extend({
 
 	myLoginModalButtons: [
@@ -15,7 +19,7 @@ export default Ember.Controller.extend({
 	// the fields property will contain 'loginUsername' and 'loginPassword' via this.get('fields')
 	actions: {
 		login: function() {
-			Bootstrap.NM.push('Login success', 'success');
+			// Bootstrap.NM.push('Login success', 'success');
 			return Bootstrap.ModalManager.hide('myLoginModal');
 		},
 

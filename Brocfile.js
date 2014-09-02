@@ -2,13 +2,16 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-
+// we need the importBootstarpJS to be able to use the javascript for modals
 var app = new EmberApp({
   'ember-cli-bootstrap': {
-    'importBootstrapJS': true // we need this to be able to use the javascript for modals
+    'importBootstrapJS': true
   }
 });
 
+// Not working
+// app.import('vendor/ember-addons.bs_for_ember/dist/js/bs-core.min.js');
+// app.import('vendor/bootstrap/dist/js/bootstrap.js');
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
