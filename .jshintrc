@@ -3,7 +3,8 @@
     "document": true,
     "window": true,
     "-Promise": true,
-    "EmberWkndENV": true
+    "EmberWkndENV": true,
+    "Bootstrap": true
   },
   "browser" : true,
   "boss" : true,
