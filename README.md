@@ -21,6 +21,10 @@ Work in progress.
 into named outlets, which would load their respective controllers and thus models, instead of having the IndexRoute load two models into a 'multi-model'
 * DRY up the templates as some are nearly identical
 
+## NOTES
+
+I like how the [Ruby on Rails Tutorial](http://www.railstutorial.org/book/frontmatter) starts with the first chapter being 'From zero to deploy'. That's what I want to start with when learning something new.
+
 ## Background
 
 While building my first [Ember](http://emberjs.com/) project I started down a number of roads in terms of what tooling to use and how I was going to deploy my application.
