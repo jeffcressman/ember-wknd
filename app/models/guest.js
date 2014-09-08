@@ -4,7 +4,7 @@ var Guest = DS.Model.extend({
   name: DS.attr('string'),
   email: DS.attr('string'),
   password: DS.attr('string'),
-  workshops: DS.hasMany('workshop', { async: true } )
+  registrations: DS.hasMany('registration', { async: true } )
 });
 
 Guest.reopenClass({
@@ -14,21 +14,21 @@ Guest.reopenClass({
 			name: 'Cliff Ramon',
 			email: 'cliff@somewhere.com',
 			password: 'password',
-			workshops: [ 6, 9 ] 
+			registrations: [ 20, 21 ] 
 		},
 		{
 			id: 2,
 			name: 'Dana Orf',
 			email: 'dana@somewhere.com',
 			password: 'password',
-			workshops: [ 6, 8, 10 ]
+			registrations: [ 22, 23, 24 ]
 		},
 		{
 			id: 3,
 			name: 'Ralf fine',
 			email: 'ralf@somewhere.com',
 			password: 'password',
-			workshops: [ 7, 9, 10 ]
+			registrations: [ 25, 26, 27 ]
 		}
 	]
 });

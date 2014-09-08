@@ -3,7 +3,7 @@
 		{{#bs-panel heading="Workshop" type="info"}}
 			<p><b>Name:</b> {{name}}</p>
 			<p><b>Description:</b> {{description}}</p>
-			<p><b>Speaker:</b> {{speaker.name}}</p>
+			<p><b>Speaker:</b> {{#link-to 'speakers.speaker.index' speaker}}{{speaker.name}}{{/link-to}}</p>
 		{{/bs-panel}}
 	</div>
 </div>

@@ -6,7 +6,7 @@
 			<p><b>Speaker for:</b></p>
 			<ul class="list-group">
 				{{#each workshop in model.workshops}}
-				  <li class="list-group-item">{{workshop.name}}</li>
+				  <li class="list-group-item">{{#link-to 'workshops.workshop' workshop}}{{workshop.name}}{{/link-to}}</li>
 				{{/each}}
 			</ul>
 		{{/bs-panel}}

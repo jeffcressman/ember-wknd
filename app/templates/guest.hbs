@@ -10,8 +10,8 @@
 	<div class="col-md-4">
 		{{#bs-panel heading="Workshop Schedule" type="info"}}
 			<ul class="list-group">
-				{{#each workshop in model.workshops}}
-				  <li class="list-group-item">{{#link-to 'guest.workshops.workshop' model workshop}}{{workshop.name}}{{/link-to}}</li>
+				{{#each registration in model.registrations}}
+					<li class="list-group-item">{{#link-to 'guest.workshops.workshop' model registration.workshop}}{{registration.workshop.name}}{{/link-to}}</li>
 				{{/each}}
 			</ul>
 		{{/bs-panel}}
