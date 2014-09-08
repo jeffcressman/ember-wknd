@@ -4,6 +4,8 @@ Work in progress.
 
 ## TODO
 
+* CRUD for guests, speakers, and workshops
+* register for a workshop
 * move the descriptive content here to a blog post
 * add options for deploying to a variety of environments
 * add code climate and similar badges
@@ -20,6 +22,7 @@ Work in progress.
 * For the main page we could simply have the IndexView render the speaker and workshop templates
 into named outlets, which would load their respective controllers and thus models, instead of having the IndexRoute load two models into a 'multi-model'
 * DRY up the templates as some are nearly identical
+  * <http://blog.jasonkriss.com/building-an-app-with-ember-app-kit-part-4/>
 
 ## NOTES
 
