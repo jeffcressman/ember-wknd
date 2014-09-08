@@ -50,7 +50,7 @@ Before coding an application I want to know that I have and end-to-end solution 
 
 ## The App
 
-Ficticious Ember weekend conference with Guests, Speakers, Workshops, and Hosts.
+Ficticious Ember weekend conference with Guests, Speakers, Workshops, Registrations, and Hosts.
 
 The default application view is a public list of Speakers and Workshops.
 <emberwknd.com/>
@@ -99,24 +99,6 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit your app at http://localhost:4200.
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Resources Used To Build This Application
 
