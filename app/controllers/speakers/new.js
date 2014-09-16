@@ -9,6 +9,9 @@ export default Ember.Controller.extend({
 			speaker.save().then(function() {
 				self.transitionToRoute('speakers.index');
 			});
+		},
+		cancel: function() {
+			this.transitionToRoute('speakers');
 		}
 	}
 });

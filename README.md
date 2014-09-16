@@ -117,6 +117,7 @@ npm install -g bower
 ember new ember-wknd
 cd ember-wknd
 npm install --save-dev ember-cli-bootstrap
+bower install --save ember-forms
 ```
 Get rid of the # in URLs
 

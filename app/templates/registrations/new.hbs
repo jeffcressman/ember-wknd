@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<h2>New Registration</h2>
+
+		<form role="form" {{action "createRegistration" on="submit"}}>
+			<div class="form-group">
+				<label {{bind-attr for="guestList.elementId"}}>Guest</label>
+				{{view Ember.Select classNames="form-control"
+					viewName="guestList"
+					content=guests 
+	       	optionValuePath="content.id"
+	       	optionLabelPath="content.name"
+					value=selectedGuest
+					prompt="Choose"}}
+			</div>
+			<div class="form-group">
+				<label {{bind-attr for="workshopList.elementId"}}>Workshop</label>
+				{{view Ember.Select classNames="form-control"
+					viewName="workshopList"
+					content=workshops 
+	       	optionValuePath="content.id"
+	       	optionLabelPath="content.name"
+					value=selectedWorkshop
+					prompt="Choose"}}
+			</div>			
+			<button class="btn btn-primary" type="submit">Create Registration</button>
+			<button type="button" class="btn btn-default" {{action 'cancel'}}>Cancel</button>
+		</form>
+	</div>
+</div>

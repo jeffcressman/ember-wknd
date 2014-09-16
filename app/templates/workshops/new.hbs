@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<h2>New Workshop</h2>
+
+		<form role="form" {{action "createWorkshop" on="submit"}}>
+			<div class="form-group">
+				<label for="workshop_name">Name</label>
+				{{input value=fields.name id='workshop_name' class="form-control"}}
+			</div>
+			<div class="form-group">
+				<label for="workshop_description">Description</label>
+				{{textarea value=fields.description id='workshop_description'class="form-control" rows="3"}}
+			</div>
+			<div class="form-group">
+				<label {{bind-attr for="speakerList.elementId"}}>Speaker</label>
+				{{view Ember.Select classNames="form-control"
+					viewName="speakerList"
+					content=speakers 
+	       	optionValuePath="content.id"
+	       	optionLabelPath="content.name"
+					value=fields.speaker
+					prompt="Choose"}}
+			</div>
+{{!-- 			<!-- this isn't picking up the speakers -->
+			{{#em-form model=model}}
+				{{em-select
+	            label="Speaker"
+	            property="speaker"
+	            content=speakers
+	            optionValuePath="content.id"
+	            optionLabelPath="content.name"
+	            prompt="--select--"}}
+	    {{/em-form}} --}}
+			<button class="btn btn-primary" type="submit">Create Workshop</button>
+			<button type="button" class="btn btn-default" {{action 'cancel'}}>Cancel</button>
+		</form>
+	</div>
+</div>

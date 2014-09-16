@@ -9,6 +9,10 @@
 				  <li class="list-group-item">{{#link-to 'workshops.workshop' workshop}}{{workshop.name}}{{/link-to}}</li>
 				{{/each}}
 			</ul>
+			<div>
+				{{#link-to 'speakers.edit' this class='btn btn-default'}}Edit{{/link-to}}
+				<button type="button" class="btn btn-danger" {{action 'deleteSpeaker'}}>Delete</button>
+			</div>
 		{{/bs-panel}}
 	</div>
 </div>

@@ -3,7 +3,8 @@ import DS from 'ember-data';
 var Workshop = DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
-  speaker: DS.belongsTo('speaker', { async: true } )
+  speaker: DS.belongsTo('speaker', { async: true } ),
+  registrations: DS.hasMany('registration', { async: true })
 });
 
 Workshop.reopenClass({
