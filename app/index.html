@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="assets/ember-wknd.css">
   </head>
   <body>
+    <script>
+      window.EmberWkndENV = {{ENV}};
+      window.EmberENV = window.EmberWkndENV.EmberENV;
+    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/ember-wknd.js"></script>
     <script>
-      window.EmberWkndENV = require('ember-wknd/config/environment')['default'];
-      window.EmberENV = window.EmberWkndENV.EmberENV;
       window.EmberWknd = require('ember-wknd/app')['default'].create(EmberWkndENV.APP);
     </script>
   </body>

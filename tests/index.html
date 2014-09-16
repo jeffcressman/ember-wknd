@@ -33,14 +33,15 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
 
+    <script>
+      window.EmberWkndENV = {{ENV}};
+      window.EmberENV = window.EmberWkndENV.EmberENV;
+    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/test-support.js"></script>
     <script src="assets/ember-wknd.js"></script>
     <script src="testem.js"></script>
     <script>
-      window.EmberWkndENV = require('ember-wknd/config/environment')['default'];
-      window.EmberENV = window.EmberWkndENV.EmberENV;
-
       require('ember-wknd/tests/test-helper');
     </script>
     <script src="assets/test-loader.js"></script>

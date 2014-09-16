@@ -1,8 +1,6 @@
-/* global require */
-
-var Application = require('ember-wknd/app')['default'];
-var Router = require('ember-wknd/router')['default'];
 import Ember from 'ember';
+import Application from 'ember-wknd/app';
+import Router from 'ember-wknd/router';
 
 export default function startApp(attrs) {
   var App;
