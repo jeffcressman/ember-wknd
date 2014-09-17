@@ -15,6 +15,14 @@
   <body>
     <script>
       window.EmberWkndENV = {{ENV}};
+   //    window.ENV = window.EmberWkndENV || {};
+   //    window.ENV['simple-auth'] = {
+			//   authorizer: 'simple-auth-authorizer:devise'
+			// };
+   //    // configure the endpoint for the devise authenticator
+   //    window.ENV['simple-auth-devise'] = {
+   //      serverTokenEndpoint: '/v5/users/sign_in',
+   //    };			
       window.EmberENV = window.EmberWkndENV.EmberENV;
     </script>
     <script src="assets/vendor.js"></script>

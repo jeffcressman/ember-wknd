@@ -12,7 +12,7 @@ Router.reopen({
 
 Router.map(function() {
 
-	this.route('login', { path: '/login'});
+	this.route('login');
 
 	this.resource('guests', function () {} );
 

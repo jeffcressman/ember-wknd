@@ -1,12 +1,10 @@
 import Ember from 'ember';
+import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(LoginControllerMixin, {
 
-	myLoginModalButtons: [
-			Ember.Object.create({title: 'Login', clicked: 'login'}),
-			Ember.Object.create({title: 'Cancel', clicked: 'cancel', dismiss: 'modal'})
-	],
-
+	authenticator: 'simple-auth-authenticator:devise',
+	
 	myRegistrationModalButtons: [
 		Ember.Object.create({title: 'Register', clicked: 'register'}),
 		Ember.Object.create({title: 'Cancel', clicked: 'cancel', dismiss: 'modal'})
@@ -14,10 +12,6 @@ export default Ember.Controller.extend({
 
 	// the fields property will contain 'loginUsername' and 'loginPassword' via this.get('fields')
 	actions: {
-		login: function() {
-			// Bootstrap.NM.push('Login success', 'success');
-			return Bootstrap.ModalManager.hide('myLoginModal');
-		},
 
 		// Controllers persist so if we happen to register more than one user
 		// the current setup does not clear 
@@ -32,10 +26,6 @@ export default Ember.Controller.extend({
 
 		cancel: function() {
 			return Bootstrap.NM.push('Login cancelled', 'info');
-		},
-
-		showLogin: function() {
-			return Bootstrap.ModalManager.show('myLoginModal');
 		},
 
 		showRegistration: function() {

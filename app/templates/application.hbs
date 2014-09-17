@@ -11,16 +11,24 @@
 				{{#link-to 'index' class="navbar-brand"}}Ember Wknd{{/link-to}}
 			</div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav">	
-        	<li>{{#link-to 'guests'}}Guests{{/link-to}}</li>
+        <ul class="nav navbar-nav">
+        	{{#if session.isAuthenticated}}
+        		<li>{{#link-to 'guests'}}Guests{{/link-to}}</li>
+        	{{/if}}
 					<li>{{#link-to 'speakers'}}Speakers{{/link-to}}</li>
 					<li>{{#link-to 'workshops'}}Workshops{{/link-to}}</li>
-					<li>{{#link-to 'registrations'}}Registrations{{/link-to}}</li>		
+					{{#if session.isAuthenticated}}
+						<li>{{#link-to 'registrations'}}Registrations{{/link-to}}</li>
+					{{/if}}
 				</ul>
 				<div class="navbar-form navbar-right" role="application">
-            {{bs-button title="Login" clicked="showLogin"}}
-            {{bs-button title="Register" type="primary" clicked="showRegistration"}}
-          </div>
+					{{#if session.isAuthenticated}}
+            {{bs-button title="Logout" clicked="invalidateSession"}}
+          {{else}}
+          	{{bs-button title="Login" clicked="authenticateSession"}}
+          {{/if}}
+          {{bs-button title="Register" type="primary" clicked="showRegistration"}}
+        </div>
 			</div>
 		</div>
 	</nav>
@@ -29,23 +37,6 @@
 <div class="container">
 	{{outlet}}
 </div>
-
-{{#bs-modal name="myLoginModal" fade=true footerButtonsBinding="myLoginModalButtons" title="Login"}}
-	<form class="form-horizontal" role="form">
-		<div class="form-group">
-      <label for="loginUsername" class="col-sm-2 control-label">Username</label>
-      <div class="col-sm-10">
-      	{{input value=fields.loginUsername id='loginUsername' class="form-control"}}
-    	</div>
-    </div>
-    <div class="form-group">
-      <label for="loginPassword" class="col-sm-2 control-label">Password</label>
-      <div class="col-sm-10">
-     		{{input type="password" value=fields.loginPassword id='loginPassword' class="form-control"}}
-     	</div>
-    </div>
-  </form>
-{{/bs-modal}}
 
 {{#bs-modal name="myRegistrationModal" fade=true footerButtonsBinding="myRegistrationModalButtons" title="Register"}}
 	<form class="form-horizontal" role="form">
