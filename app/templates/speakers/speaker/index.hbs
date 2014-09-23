@@ -10,8 +10,10 @@
 				{{/each}}
 			</ul>
 			<div>
-				{{#link-to 'speakers.edit' this class='btn btn-default'}}Edit{{/link-to}}
-				<button type="button" class="btn btn-danger" {{action 'deleteSpeaker'}}>Delete</button>
+				{{#if session.isAuthenticated}}
+					{{#link-to 'speakers.edit' this class='btn btn-default'}}Edit{{/link-to}}
+					<button type="button" class="btn btn-danger" {{action 'deleteSpeaker'}}>Delete</button>
+				{{/if}}
 			</div>
 		{{/bs-panel}}
 	</div>
