@@ -4,6 +4,9 @@ import DS from 'ember-data';
 // export default DS.FixtureAdapter.extend();
 
 var ApplicationAdapter = DS.RESTAdapter.extend({
-  host: 'http://localhost:3000'
+  
+  host: window.EmberWkndENV.APP.SERVER_URL
+
 });
+
 export default ApplicationAdapter;

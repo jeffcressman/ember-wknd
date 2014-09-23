@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-var SpeakerRoute = Ember.Route.extend(AuthenticatedRouteMixin, {
+var SpeakerRoute = Ember.Route.extend({
  model: function(params) {
 	 return this.store.find('speaker', params.id);
  },

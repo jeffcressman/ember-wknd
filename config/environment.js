@@ -5,6 +5,9 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+		railsCsrf: {
+			csrfURL: 'http://localhost:3000/api/csrf'
+		},
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -15,6 +18,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      SERVER_URL: 'http://localhost:3000'
     }
   };
 
@@ -31,7 +35,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+		ENV.APP.SERVER_URL = 'https://api.supracademy.com';
   }
 
   return ENV;
