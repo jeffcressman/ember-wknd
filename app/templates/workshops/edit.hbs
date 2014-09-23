@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<h2>Edit Workshop</h2>
+		<form {{action 'save' on='submit'}}>
+			<div class="form-group">
+				<label for="Name">Name</label>
+				{{input value=model.name id='edit_workshop_name' class="form-control"}}
+			</div>
+			<div class="form-group">
+				<label for="Description">Description</label>
+				{{textarea value=model.description id='edit_workshop_description' class="form-control" rows="3"}}
+			</div>
+			<div class="form-group">
+				<label {{bind-attr for="workshopSpeakerList.elementId"}}>Speaker</label>
+				{{view Ember.Select classNames="form-control"
+					viewName="workshopSpeakerList"
+					content=speakers 
+	       	optionValuePath="content.id"
+	       	optionLabelPath="content.name"
+					value=speaker
+					prompt=model.speaker.name}}
+			</div>			
+			<button type="submit" class="btn btn-primary">Update</button>
+			<button type="button" class="btn btn-default" {{action 'cancel'}}>Cancel</button>
+		</form>
+	</div>
+</div>
+
+{{outlet}}

@@ -4,7 +4,13 @@
 			<p><b>Name:</b> {{name}}</p>
 			<p><b>Description:</b> {{description}}</p>
 			<p><b>Speaker:</b> {{#link-to 'speakers.speaker.index' speaker}}{{speaker.name}}{{/link-to}}</p>
-		{{/bs-panel}}
+			<div>
+				{{#if session.isAuthenticated}}
+					{{#link-to 'workshops.edit' model class='btn btn-default'}}Edit{{/link-to}}
+					<button type="button" class="btn btn-danger" {{action 'deleteWorkshop'}}>Delete</button>
+				{{/if}}
+			</div>				
+		{{/bs-panel}}		
 	</div>
 </div>
 

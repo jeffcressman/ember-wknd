@@ -35,7 +35,7 @@ Router.map(function() {
 	this.resource('workshops', function () {
 		this.route('new');
 		this.route('edit', { path: '/:workshop_id/edit' });
-		this.resource('workshops.workshop', { path: '/:workshop_id' });
+		this.resource('workshops.workshop', { path: '/:workshop_id' }, function() {});
 	});
 
 	this.resource('registrations', function () {
