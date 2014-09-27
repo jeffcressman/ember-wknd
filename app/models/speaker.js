@@ -2,6 +2,7 @@ import DS from 'ember-data';
 
 var Speaker = DS.Model.extend({
   name: DS.attr('string'),
+  email: DS.attr('string'),
   bio: DS.attr('string'),
   workshops: DS.hasMany('workshop', { async: true } )
 });
