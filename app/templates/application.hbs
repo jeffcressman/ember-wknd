@@ -23,6 +23,7 @@
 				</ul>
 				<div class="navbar-form navbar-right" role="application">
 					{{#if session.isAuthenticated}}
+          	<p>You are currently authenticated as <em>{{session.currentUserName}}</em></p>
             {{bs-button title="Logout" clicked="invalidateSession"}}
           {{else}}
           	{{bs-button title="Login" clicked="authenticateSession"}}
