@@ -1,7 +1,8 @@
-import Ember from 'ember';
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import AuthorizedRoute from 'ember-wknd/routes/authorized';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default AuthorizedRoute.extend( {
+	access: ['host'],
+
   model: function() {
     return this.store.find('guest');
   }

@@ -13,6 +13,7 @@ Router.reopen({
 Router.map(function() {
 
 	this.route('login');
+	this.route('unauthorized');
 
 	this.resource('guests', function () {} );
 

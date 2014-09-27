@@ -77,7 +77,7 @@ Speakers have a name, bio, and list of workshops they are presenting.
 A Workshop has a name, description, and id of the Speaker giving it.
 `/workshop/:id`
 
-Hosts can edit Workshops and Speakers.
+Hosts can edit Workshops, Speakers, and Guests.
 `/hosts`
 `/workshop/:id/edit`
 `/speaker/:id/edit`
