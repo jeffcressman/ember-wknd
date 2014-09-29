@@ -3,6 +3,7 @@ import DS from 'ember-data';
 var Host = DS.Model.extend({
   name: DS.attr('string'),
   email: DS.attr('string'),
+  password: DS.attr('string')
 });
 
 Host.reopenClass({
@@ -11,6 +12,7 @@ Host.reopenClass({
 			id: 30,
 			name: 'Sam',
 			email: 'sam@somewhere.com',
+			password: 'password'
 		}
 	]
 });

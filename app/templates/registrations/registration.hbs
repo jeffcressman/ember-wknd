@@ -4,6 +4,10 @@
 			<p><b>Name:</b> {{name}}</p>
 			<p><b>Guest:</b> {{#link-to 'guest' guest}}{{guest.name}}{{/link-to}}</p>
 			<p><b>Workshop:</b> {{#link-to 'workshops.workshop' workshop}}{{workshop.name}}{{/link-to}}</p>
+			<div>
+				{{#link-to 'registrations.edit' model class='btn btn-default'}}Edit{{/link-to}}
+				<button type="button" class="btn btn-danger" {{action 'deleteRegistration'}}>Delete</button>
+			</div>
 		{{/bs-panel}}
 	</div>
 </div>

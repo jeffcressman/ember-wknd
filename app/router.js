@@ -17,6 +17,7 @@ Router.map(function() {
 
 	this.resource('guests', function () {} );
 
+	// TODO: fix the Guest routes to make them more like the rest, nested under Guests
 	this.resource('guest', { path: '/guest/:guest_id' }, function () {
 		this.route('new');
 		this.route('edit', { path: '/:guest_id/edit' });

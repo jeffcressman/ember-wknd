@@ -1,6 +1,9 @@
 import DS from 'ember-data';
+import DeletesDependentRelationships from 'ember-wknd/mixins/deletes-dependent-relationships';
 
-var Guest = DS.Model.extend({
+var Guest = DS.Model.extend(DeletesDependentRelationships, {
+	dependentRelationships: ['registrations'],
+
   name: DS.attr('string'),
   email: DS.attr('string'),
   password: DS.attr('string'),

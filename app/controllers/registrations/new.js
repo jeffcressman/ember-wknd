@@ -13,24 +13,27 @@ export default Ember.Controller.extend({
 			// var registration = store.createRecord('registration', {name: self.selectedWorkshop.name});
 			var registration = store.createRecord('registration');
 			
-			registration.save().then(function() {		
+			// Save the Registration
+			registration.save().then(function() {
+				// Add the Guest to the Registration
 				store.find('guest', guest_id).then(function(guest) {
 					guest.get('registrations').then(function(registrations) {
 						registrations.addObject(registration);
-						guest.save();
+						guest.save().then(function() {
+							// Add the Workshop to the Registration
+							store.find('workshop', workshop_id).then(function(workshop) {
+								workshop.get('registrations').then(function(registrations) {
+									registrations.addObject(registration);
+									workshop.save().then(function(){
+										// Add the Workshop name as the Registration name
+										// TODO: Stupid that we have to save again just to set the name
+										registration.set('name', workshop.get('name')); // This set the registration name and wiped the Guest...
+										registration.save();
+									});
+								});
+							});
+						});
 					});
-				});
-				
-				store.find('workshop', workshop_id).then(function(workshop) {
-					workshop.get('registrations').then(function(registrations) {
-						registrations.addObject(registration);
-						workshop.save();
-					});
-
-					// // Stupid that we have to save again just to set the name
-					// // FIX
-					// registration.name = workshop.get('name');
-					// registration.save();
 				});
 
 				self.transitionToRoute('registrations.index');

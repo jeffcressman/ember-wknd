@@ -1,6 +1,9 @@
 import DS from 'ember-data';
+import DeletesDependentRelationships from 'ember-wknd/mixins/deletes-dependent-relationships';
 
-var Workshop = DS.Model.extend({
+var Workshop = DS.Model.extend(DeletesDependentRelationships, {
+	dependentRelationships: ['registrations'],
+
   name: DS.attr('string'),
   description: DS.attr('string'),
   speaker: DS.belongsTo('speaker', { async: true } ),
