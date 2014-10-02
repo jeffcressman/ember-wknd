@@ -27,12 +27,12 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/ember-forms/dist/globals/main.js');
-app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
-  exports: {
-    'rails-csrf': [
-      'setCsrfUrl'
-    ]
-  }
-});
+// app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
+//   exports: {
+//     'rails-csrf': [
+//       'setCsrfUrl'
+//     ]
+//   }
+// });
 
 module.exports = app.toTree();
