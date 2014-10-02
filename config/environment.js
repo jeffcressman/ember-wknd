@@ -35,7 +35,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-		ENV.APP.SERVER_URL = 'https://api.supracademy.com';
+		ENV.APP.SERVER_URL = 'http://ember-wknd-server.heroku.com';
+		ENV.railsCsrf = {csrfURL: 'http://ember-wknd-server.heroku.com//api/csrf'};
   }
 
   return ENV;
