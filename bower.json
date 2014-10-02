@@ -12,5 +12,8 @@
     "ember-forms": "*",
     "ember-simple-auth": "0.6.6",
     "rails-csrf": "0.0.5"
+  },
+  "resolutions": {
+    "ember": "1.7.0"
   }
 }
