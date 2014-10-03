@@ -18,7 +18,8 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      SERVER_URL: 'http://localhost:3000'
+      SERVER_URL: 'http://localhost:3000',
+      CSRF_URL: 'http://localhost:3000/api/csrf',
     }
   };
 
@@ -36,7 +37,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 		ENV.APP.SERVER_URL = 'http://ember-wknd-server.heroku.com';
-		ENV.railsCsrf = {csrfURL: 'http://ember-wknd-server.heroku.com/api/csrf'};
+		ENV.APP.CSRF_URL = 'http://ember-wknd-server.heroku.com/api/csrf';
   }
 
   return ENV;

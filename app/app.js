@@ -14,7 +14,7 @@ var App = Ember.Application.extend({
   }
 });
 
-setCsrfUrl('http://localhost:3000/api/csrf');
+setCsrfUrl(ENV.APP.CSRF_URL);
 
 loadInitializers(App, 'rails-csrf');
 loadInitializers(App, 'ember-wknd');
