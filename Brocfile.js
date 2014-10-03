@@ -26,6 +26,17 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+// FIX: temporary while there are issue with Ember CLI loading handlebars
+// https://github.com/stefanpenner/ember-cli/pull/675#issuecomment-47431195
+// http://stackoverflow.com/questions/25018160/ember-cli-fails-on-environment-production-uncaught-error-could-not-find-modu
+function replaceHandlebarsRuntime(app) {
+  var index = app.legacyFilesToAppend.indexOf('bower_components/handlebars/handlebars.runtime.js');
+  if(index) {
+    app.legacyFilesToAppend[index] = 'bower_components/handlebars/handlebars.js';
+  }
+}
+replaceHandlebarsRuntime(app); 
+
 app.import('bower_components/ember-forms/dist/globals/main.js');
 app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
   exports: {
