@@ -1,10 +1,9 @@
 # Ember Wknd
 
-Work in progress.
+WORK IN PROGRESS
 
 ## TODO
 
-* CRUD for guests, speakers, and workshops
 * register for a workshop
 * move the descriptive content here to a blog post
 * add options for deploying to a variety of environments
@@ -14,7 +13,6 @@ Work in progress.
 * check out <http://indexiatech.github.io/ember-forms/#/getstarted> for Embered Bootstrap styled forms
 * use Bootstrap for Ember components where possible instead of raw Bootstrap CSS and javascript
 * Embered modals (modals have a route so that state is fully expressed by URL)
-* Create workshops when creating speakers
 
 ## IMPROVE 
 
@@ -126,6 +124,12 @@ Router.reopen({
     location: 'auto',
     rootURL: '/'
 });
+````
+
+## Deploying To Heroku
+
+```bash
+heroku config:set API_URL=http://ember-wknd-server.heroku.com/
 ```
 
 ## Notes

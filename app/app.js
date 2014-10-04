@@ -14,10 +14,10 @@ var App = Ember.Application.extend({
   }
 });
 
-setCsrfUrl(ENV.APP.CSRF_URL);
-
 loadInitializers(App, 'rails-csrf');
 loadInitializers(App, 'ember-wknd');
+
+setCsrfUrl(ENV.APP.CSRF_URL);
 
 // TODO: only expose this in the development environment
 // Add App to Global scope so we can access it from the browser console

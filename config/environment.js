@@ -6,7 +6,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
 		railsCsrf: {
-			csrfURL: 'http://localhost:3000/api/csrf'
+			csrfURL: ''
 		},
     EmberENV: {
       FEATURES: {
@@ -29,10 +29,12 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true; // this helps us see where hooks are being called
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.CSRF_URL = 'http://localhost:3000/api/csrf'
   }
 
   if (environment === 'test') {
     ENV.baseURL = '/'; // Testem prefers this...
+    ENV.APP.CSRF_URL = 'http://localhost:3000/api/csrf'
   }
 
   if (environment === 'production') {
