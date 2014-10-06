@@ -38,8 +38,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-		ENV.APP.SERVER_URL = 'http://ember-wknd-server.heroku.com';
-		ENV.APP.CSRF_URL = 'http://ember-wknd-server.heroku.com/api/csrf';
+		ENV.APP.SERVER_URL = 'http://ember-wknd-server.herokuapp.com';
+		ENV.APP.CSRF_URL = 'http://ember-wknd-server.herokuapp.com/api/csrf';
   }
 
   return ENV;
