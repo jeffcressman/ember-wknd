@@ -1,6 +1,9 @@
 import DS from 'ember-data';
 import DeletesDependentRelationships from 'ember-wknd/mixins/deletes-dependent-relationships';
 
+// TODO: figure out a better way to handle passwords. The only reason we have the password field
+// is for creating new users. We don't care about the password once its been set. There may not
+// be a better way but it doesn't feel quite right.
 var Guest = DS.Model.extend(DeletesDependentRelationships, {
 	dependentRelationships: ['registrations'],
 
