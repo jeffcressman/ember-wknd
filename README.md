@@ -128,8 +128,6 @@ Router.reopen({
 
 ## Deploying To Heroku
 
-Tried the following but it didn't help with CORS
-
 ```bash
 heroku create ember-wknd --buildpack https://github.com/tonycoco/heroku-buildpack-ember-cli.git
 heroku run rake db:migrate
