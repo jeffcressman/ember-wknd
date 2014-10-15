@@ -16,20 +16,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      SERVER_URL: 'http://localhost:3000',
-      CSRF_URL: 'http://localhost:3000/api/csrf',
+      SERVER_URL: 'https://ember-wknd-server.herokuapp.com',
+      CSRF_URL: 'https://ember-wknd-server.herokuapp.com',
     }
-  };
-
-  ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:devise',
-    crossOriginWhitelist:[
-      ENV.APP.SERVER_URL
-    ]
-  };
-
-  ENV['simple-auth-devise'] = {
-    serverTokenEndpoint: ENV.APP.SERVER_URL + '/users/sign_in'
   };
 
   if (environment === 'development') {
@@ -38,6 +27,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true; // this helps us see where hooks are being called
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.APP.SERVER_URL = 'http://localhost:3000',    
     ENV.APP.CSRF_URL = 'http://localhost:3000/api/csrf'
   }
 
@@ -52,6 +43,7 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
+		ENV.APP.SERVER_URL = 'http://localhost:3000',
     ENV.APP.CSRF_URL = 'http://localhost:3000/api/csrf'
   }
 
@@ -59,6 +51,17 @@ module.exports = function(environment) {
 		ENV.APP.SERVER_URL = 'https://ember-wknd-server.herokuapp.com';
 		ENV.APP.CSRF_URL = 'https://ember-wknd-server.herokuapp.com/api/csrf';
   }
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise',
+    crossOriginWhitelist:[
+      ENV.APP.SERVER_URL
+    ]
+  };
+
+  ENV['simple-auth-devise'] = {
+    serverTokenEndpoint: ENV.APP.SERVER_URL + '/users/sign_in'
+  };  
 
   return ENV;
 };
