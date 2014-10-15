@@ -19,12 +19,4 @@ loadInitializers(App, config.modulePrefix);
 setCsrfUrl(config.APP.CSRF_URL);
 loadInitializers(App, 'rails-csrf');
 
-
-// Add App to Global scope so we can access it from the browser console
-// UPDATE: This might be handled differently now...
-
-if (config.environment === "development") {
-	window.App = App;
-}
-
 export default App;
