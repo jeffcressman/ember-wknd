@@ -115,7 +115,6 @@ npm install -g bower
 ember new ember-wknd
 cd ember-wknd
 npm install --save-dev ember-cli-bootstrap
-bower install --save ember-forms
 ```
 Get rid of the # in URLs
 
@@ -134,9 +133,35 @@ heroku run rake db:migrate
 heroku run rake db:seed
 ```
 
-## Notes
+## Updating ember-cli
 
-Initially I installed Bootstrap via Bower but then changed my mind and decided to use ember-cli addons when available. The first time I installed ember-cli-bootstrap I got some warnings about unment version dependencies. I used npm to update `quick-temp` and `chalk` but then ember-cli started throwing `Path or pattern "vendor/loader/loader.js" did not match any files` so I recreated my app from scratch and this time no errors. Oh, the problem was that I deleted the 'bower_components' directorty, which contains ember, amongst other things, because I thought only the version of Bootstrap that I installed would be in there.
+Some breaking changes to get from ember-cli 0.4.4 to 0.1.0.
+
+Need to update the following. Easiest by re-installing with npm install.
+* npm install --save-dev ember-cli-simple-auth
+* npm install --save-dev ember-cli-simple-auth-devise
+* npm install --save rails-csrf
+
+bower.json gets updated in `ember init` call.
+
+Very strange. On `ember init` tried to update `app.js` but it wouldn't do it. Actually no files overwrite now. Maybe it's because I force quite the ember init process once.
+
+The `bower.js` init says to remove
+
+```json
+    "ember-simple-auth": "0.6.6",
+    "rails-csrf": "0.0.5"
+```   
+not sure if that's right.
+
+For `package.json` taking out `"broccoli-static-compiler": "^0.1.4",` but think we needed that for Heroku or Bootstrap... Adding it back didn't fix the `Could not find module simple-auth-devise/configuration` error I thought it might.
+
+`ember-cli-bootstrap` up 2 versions.
+
+Oh, does the overwrite only happen after all files have been determined? Think so... Yep. Just lost some things I was saving in `app.js` and `index.html`
+
+Took out ember-forms from bower.json. Don't think we're using it anymore.
+
 
 ## Further Reading / Useful Links
 

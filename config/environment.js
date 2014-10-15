@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+  	modulePrefix: 'ember-wknd',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -23,6 +24,17 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise',
+    crossOriginWhitelist:[
+      ENV.APP.SERVER_URL
+    ]
+  };
+
+  ENV['simple-auth-devise'] = {
+    serverTokenEndpoint: ENV.APP.SERVER_URL + '/users/sign_in'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -33,7 +45,16 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
-    ENV.baseURL = '/'; // Testem prefers this...
+    // Testem prefers this...
+    ENV.baseURL = '/'; 
+    ENV.locationType = 'auto';
+
+    // keep test console output quieter
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
+
+    ENV.APP.rootElement = '#ember-testing';
+
     ENV.APP.CSRF_URL = 'http://localhost:3000/api/csrf'
   }
 

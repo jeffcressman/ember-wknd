@@ -7,20 +7,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/ember-wknd.css">
   </head>
   <body>
-    <script>
-      window.EmberWkndENV = {{ENV}};	
-      window.EmberENV = window.EmberWkndENV.EmberENV;
-    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/ember-wknd.js"></script>
-    <script>
-      window.EmberWknd = require('ember-wknd/app')['default'].create(EmberWkndENV.APP);
-    </script>
   </body>
 </html>

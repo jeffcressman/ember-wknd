@@ -32,8 +32,6 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 // Ok, so the vendorFiles fix works the same as the last fix
-
-app.import('bower_components/ember-forms/dist/globals/main.js');
 app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
   exports: {
     'rails-csrf': [
