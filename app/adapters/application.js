@@ -1,11 +1,12 @@
 import DS from 'ember-data';
+import config from '../config/environment';
 
 // For testing without connecting to our Rails app
 // export default DS.FixtureAdapter.extend();
 
 var ApplicationAdapter = DS.RESTAdapter.extend({
   
-  host: window.EmberWkndENV.APP.SERVER_URL
+  host: config.APP.SERVER_URL
 
 });
 
