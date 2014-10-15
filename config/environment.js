@@ -17,7 +17,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       SERVER_URL: 'https://ember-wknd-server.herokuapp.com',
-      CSRF_URL: 'https://ember-wknd-server.herokuapp.com',
+      CSRF_URL: 'https://ember-wknd-server.herokuapp.com/api/csrf',
     }
   };
 
