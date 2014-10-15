@@ -11,8 +11,12 @@ var app = new EmberApp({
 		'handlebars.js': {
 			production:  'bower_components/handlebars/handlebars.js'
 		}
-	}  
+	}
 });
+
+// If we need to test the production environment locally without minifying JS we can add
+// 	minifyJS: false to the app variable above and then run
+// ember serve --environment=production
 
 // Not working
 // app.import('vendor/ember-addons.bs_for_ember/dist/js/bs-core.min.js');
