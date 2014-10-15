@@ -15,12 +15,10 @@ var App = Ember.Application.extend({
   }
 });
 
-// debugger;
-
 loadInitializers(App, config.modulePrefix);
+setCsrfUrl(config.APP.CSRF_URL);
 loadInitializers(App, 'rails-csrf');
 
-setCsrfUrl(config.APP.CSRF_URL);
 
 // Add App to Global scope so we can access it from the browser console
 // UPDATE: This might be handled differently now...

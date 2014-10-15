@@ -31,13 +31,4 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-// Ok, so the vendorFiles fix works the same as the last fix
-app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
-  exports: {
-    'rails-csrf': [
-      'setCsrfUrl'
-    ]
-  }
-});
-
 module.exports = app.toTree();
