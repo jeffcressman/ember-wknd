@@ -163,6 +163,9 @@ Oh, does the overwrite only happen after all files have been determined? Think s
 
 Took out ember-forms from bower.json. Don't think we're using it anymore.
 
+After updating to ember-cli 0.1.0 we're getting warnings related to the new CSP implementations, e.g. `Refused to apply inline style because it violates the following Content Security Policy directive: "style-src 'self'".`.
+
+Read up on ember-cli CSP [here](https://github.com/rwjblue/ember-cli-content-security-policy).
 
 ## Further Reading / Useful Links
 
