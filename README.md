@@ -106,6 +106,7 @@ You will need the following things properly installed on your computer.
 * <http://stackoverflow.com/questions/23349959/recommended-way-to-include-bootstrap-library-in-ember-js-ember-cli-app>
 * <http://ember.vicramon.com/>
 * <http://reefpoints.dockyard.com/2014/05/07/building-an-ember-app-with-rails-part-1.html>
+* [This](http://givan.se/p/00000000) was super helpful for getting devise and CORS sorted out. The rails-csrf section is out of date now. See the [rails-csrf ember-cli addon](https://github.com/abuiles/rails-csrf) before implementing anything from this post.
 
 ## How This Application Was Built
 
