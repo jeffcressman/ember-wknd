@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from './config/environment';
+import adminRouter from 'ember-admin/router';
 
 var Router = Ember.Router.extend({
   location: config.locationType
@@ -12,7 +13,7 @@ Router.reopen({
 });
 
 Router.map(function() {
-
+	adminRouter(this);
 	this.route('login');
 	this.route('unauthorized');
 
@@ -47,6 +48,7 @@ Router.map(function() {
 		this.resource('registrations.registration', { path: '/:registration_id' });
 	});
 	
+  this.route('admin');
 });
 
 export default Router;
