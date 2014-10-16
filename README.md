@@ -5,11 +5,13 @@ WORK IN PROGRESS
 ## TODO
 
 * register for a workshop
+* admin should support full CRUD for all requirements
+    - e.g. currently you can create a registration but not one that has both a guest and workshop as required.      
 * move the descriptive content here to a blog post
 * add options for deploying to a variety of environments
 * add code climate and similar badges
 * add testing
-* move all fixture data into a single `fixture.js` file
+* move all fixture data into a single `fixture.js` file or use mocks with Express server
 * check out <http://indexiatech.github.io/ember-forms/#/getstarted> for Embered Bootstrap styled forms
 * use Bootstrap for Ember components where possible instead of raw Bootstrap CSS and javascript
 * Embered modals (modals have a route so that state is fully expressed by URL)
@@ -179,6 +181,21 @@ user_type: "Host"
 ```
 
 Never figured this out. Just started working again after pushing some branches to Heroku and then pushing master back. Perhaps issues with NPM and Bower caches after the update? Wouldn't really make sense though because getting the extra data back is simply a matter of Rails returning it for the standard simple-auth devise request.
+
+### Issue 4.
+
+Feels like we're not always getting a clean build when updating files. I removed the debugger in the case below
+
+```
+/Users/jcressma/Documents/Code/ember-wknd/dist/assets/vendor.js:
+ 68307              password: credentials.password
+ 68308            };
+ 68309:           _this.makeRequest(data).then(function(response) {
+ 68310              Ember.run(function() {
+ 68311                  debugger;
+ ```
+
+ but it's still in the dist directory...
 
 ## Further Reading / Useful Links
 

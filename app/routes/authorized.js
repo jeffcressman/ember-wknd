@@ -8,8 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	beforeModel: function(transition) {
 		this._super(transition); // so we trigger any code in AuthenticatedRouteMixin first
 		
-		// when we're logged out this is getting hit before we're redirected to the login page if no login yet
-		if (this.get('access').contains(this.get('session').get('currentUser').get('constructor.typeKey'))){
+		if (this.get('access').contains(this.get('session').get('currentUser.role'))){
 			return true;
 		} else {
 			// manage the unauthorized attempt
