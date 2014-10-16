@@ -145,27 +145,40 @@ Need to update the following. Easiest by re-installing with npm install.
 
 bower.json gets updated in `ember init` call.
 
+### Issue 1.
+
 Very strange. On `ember init` tried to update `app.js` but it wouldn't do it. Actually no files overwrite now. Maybe it's because I force quite the ember init process once.
 
-The `bower.js` init says to remove
+Oh, does the overwrite only happen after all files have been determined? Think so... Yep. Just lost some things I was saving in `app.js` and `index.html`.
 
-```json
-    "ember-simple-auth": "0.6.6",
-    "rails-csrf": "0.0.5"
-```   
-not sure if that's right.
+### Issue 2.
 
-For `package.json` taking out `"broccoli-static-compiler": "^0.1.4",` but think we needed that for Heroku or Bootstrap... Adding it back didn't fix the `Could not find module simple-auth-devise/configuration` error I thought it might.
-
-`ember-cli-bootstrap` up 2 versions.
-
-Oh, does the overwrite only happen after all files have been determined? Think so... Yep. Just lost some things I was saving in `app.js` and `index.html`
-
-Took out ember-forms from bower.json. Don't think we're using it anymore.
+Not really an issue but a surprise that was very red and looked like errors at first.
 
 After updating to ember-cli 0.1.0 we're getting warnings related to the new CSP implementations, e.g. `Refused to apply inline style because it violates the following Content Security Policy directive: "style-src 'self'".`.
 
 Read up on ember-cli CSP [here](https://github.com/rwjblue/ember-cli-content-security-policy).
+
+### Issue 3.
+
+Session isn't returning user_id or user_type anymore. Just the standard
+
+```
+user_email: "sam@somewhere.com"
+user_token: "Lyoe7zchzwXub1zU2bKA"
+```
+Weird. Local development environment returns everything and production just the above.
+
+`ember serve --environment=production` returns the correct results:
+
+```
+user_email: "fake@email.com"
+user_id: 8
+user_token: "Lyoe7zchzwXub1zU2bKA"
+user_type: "Host"
+```
+
+Never figured this out. Just started working again after pushing some branches to Heroku and then pushing master back. Perhaps issues with NPM and Bower caches after the update? Wouldn't really make sense though because getting the extra data back is simply a matter of Rails returning it for the standard simple-auth devise request.
 
 ## Further Reading / Useful Links
 
